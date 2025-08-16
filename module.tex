@@ -1,4 +1,4 @@
-\documentclass[12pt,oneside]{udthesis}
+\documentclass[11pt,oneside]{udthesis}
 
 %----------------------------------------------------------------------------------------
 %	Atributes Settings
@@ -7,6 +7,19 @@
 \def \study{ITM} % possible options: ITM, SWD, MSD, IRM, IMS
 
 % More about you and your thesis:
+\def \Prodi{prody name}
+\def \Fak{faculty name}
+\def \Course{course name}
+\def \CourseId{course id}
+\def \Author{Author 1}
+\def \ndAuthor{Author 2}
+\def \rdAuthor{Author 3}
+\def \thAuthor{Author 4}
+\def \yourHead{<firstname lastname>}
+\def \yourNipHead{<xxxxxxxxx xxxxxxxx>}
+\def \yourSecHead{<firstname lastname>}
+\def \yourNipSecHead{<xxxxxxxxx xxxxxxxx>}
+
 \def \Title{TESIS}
 \def \title{PRA TESIS}
 \def \subtitle{Pengaruh Fitur Binaan Terhadap Aktivitas di Jalan Pinggir Laut}
@@ -17,10 +30,6 @@
 \DTMsavedate{tanggalberita}{2021-01-31} %tanggal sidang
 \DTMsavetime{waktuberita}{24:60:60} %waktu sidang
 \def \hariBerita{<day>} %hari sidang
-\def \yourAdvisor{<firstname lastname>}
-\def \yourNipAdvisor{<xxxxxxxxx xxxxxxxx>}
-\def \yourSecAdvisor{<firstname lastname>}
-\def \yourNipSecAdvisor{<xxxxxxxxx xxxxxxxx>}
 %\def \thisDocumentIsA{Thesis} % possible options:
                      % Thesis  .... for Master's Thesis   / Masterarbeit
                      % Thesis  .... for Bachelor's Thesis / Bachelorarbeit
@@ -43,7 +52,7 @@
 \subfile{subfiles/03validation.tex}
 %\subfile{subfiles/04agreement.tex}
 %\subfile{subfiles/05private.tex}
-\subfile{subfiles/06abstrak.tex}
+% \subfile{subfiles/06abstrak.tex}
 %\subfile{subfiles/07abstract.tex}
 \subfile{subfiles/08acknowledge.tex}
 
@@ -61,13 +70,17 @@
 %\subfile{subfiles/literature.tex}
 %\subfile{subfiles/method.tex}
 %\subfile{subfiles/conclusion.tex}
-\subfile{subfiles/09beritaacara.tex}
+% \subfile{subfiles/09beritaacara.tex}
 %\subfile{subfiles/10biography.tex}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
-\bibliographystyle{apalike}
-\bibliography{biblio.bib}
+% natbib
+% \bibliographystyle{ieeetran}
+% \bibliography{biblio.bib}
+% biblatex
+\printbibliography
+
 
 
 \end{document}

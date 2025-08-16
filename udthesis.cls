@@ -42,18 +42,18 @@
 
 % Rename caption's command for bahasai
 \addto\captionsmalay{
-    \renewcommand{\abstractname}{ABSTRAK}
-    \renewcommand{\contentsname}{DAFTAR ISI}
-    \renewcommand{\listfigurename}{DAFTAR GAMBAR}
-    \renewcommand{\listtablename}{DAFTAR TABEL}
-    \renewcommand{\bibname}{DAFTAR PUSTAKA}
+	\renewcommand{\abstractname}{ABSTRAK}
+	\renewcommand{\contentsname}{DAFTAR ISI}
+	\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+	\renewcommand{\listtablename}{DAFTAR TABEL}
+	\renewcommand{\bibname}{DAFTAR PUSTAKA}
 }
 % Rename caption's command for english
 \addto\captionsenglish{
-    \renewcommand{\abstractname}{ABSTRACT}
-%    \renewcommand{\figurename}{Gambar}
-%    \renewcommand{\tablename}{Tabel}
-%    \renewcommand{\abstractname}{ABSTRACT}
+	\renewcommand{\abstractname}{ABSTRACT}
+	%    \renewcommand{\figurename}{Gambar}
+	%    \renewcommand{\tablename}{Tabel}
+	%    \renewcommand{\abstractname}{ABSTRACT}
 }
 
 %----------------------------------------------------------------------------------------
@@ -68,9 +68,9 @@
 	bottom=3cm, % Bottom margin
 	left=4cm, % Left margin
 	right=3cm, % Right margin
-%	headheight=0.75cm, % Header height
+	%	headheight=0.75cm, % Header height
 	footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
-%	headsep=0.75cm, % Space from the top margin to the baseline of the header
+	%	headsep=0.75cm, % Space from the top margin to the baseline of the header
 	showframe, % Uncomment to show how the type block is set on the page
 }
 %----------------------------------------------------------------------------------------
@@ -102,16 +102,17 @@
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
-%\setcounter{secnumdepth}{3}% number subsubsection in report class
+\setcounter{secnumdepth}{3}% number subsubsection in report class
 
 \usepackage{titlesec}
 \makeatletter
 % reformat chapter number
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand \thesection{\arabic{chapter}.\arabic{section}}
-\renewcommand \thesubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
-\renewcommand \thesubsubsection{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-
+\renewcommand \thesubsection{\Alph{subsection}.}
+\renewcommand \thesubsubsection{\arabic{subsubsection}.}
+% \renewcommand \thesubsubsubsection{\alph{subsubsubsection}.}
+% \renewcommand \thesubsubsubsubsection{\arabic{subsubsubsubsection})}
 \titleformat{\chapter} %command
 [display]%shape
 {\normalfont\fontsize{12}{15}\filcenter\bfseries}%format
@@ -147,8 +148,8 @@
 {0pt plus 4pt minus 2pt}%before
 {30pt plus 2pt minus 2pt}%after
 \titlespacing\section{0pt}
-{12pt plus 4pt minus 2pt}
-{0pt plus 2pt minus 2pt}
+ {12pt plus 4pt minus 2pt}
+ {0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}
 {12pt plus 4pt minus 2pt}
 {0pt plus 2pt minus 2pt}
@@ -170,8 +171,8 @@
 %\usepackage[labelformat=parens,labelsep=quad, skip=3pt]{caption}  %Subcaption in 2 column img
 
 \usepackage[labelsep=space,
-labelfont={bf},
-font={it,small,onehalfspacing}]{caption}%Use \caption* for add source
+	labelfont={bf},
+	font={it,small,onehalfspacing}]{caption}%Use \caption* for add source
 \setlength\belowcaptionskip{-10pt} %Reduce spacing caption figures
 
 
@@ -255,8 +256,11 @@ font={it,small,onehalfspacing}]{caption}%Use \caption* for add source
 
 %----------------------------------------------------------------------------------------
 % PREAMBLE OF BIBLIOGRAPHY
-\usepackage[round]{natbib}
-\setcitestyle{open={(},close={)}}
+\usepackage[backend=bibtex, style=ieee]{biblatex} % using biblatex with style style=ieee
+\addbibresource{biblio.bib} % file inside which references are stored
+%
+% \usepackage[round]{natbib}
+% \setcitestyle{open={(},close={)}}
 %\def\biblio{\bibliographystyle{apalike}\bibliography{references.bib}} % bliography in subfile use with onlysubfile
 
 %\makeatletter
@@ -268,22 +272,22 @@ font={it,small,onehalfspacing}]{caption}%Use \caption* for add source
 %	LaTeX MACROS AND COMMANDS
 %----------------------------------------------------------------------------------------
 \renewenvironment{abstract}{%
-    \clearpage
-    \chapter*{\bfseries\abstractname\vspace{\z@}}%
-%    \quotation
-    }
+	\clearpage
+	\chapter*{\bfseries\abstractname\vspace{\z@}}%
+	%    \quotation
+}
 {
-%\endquotation
-\vspace{\baselineskip}}
+	%\endquotation
+	\vspace{\baselineskip}}
 
 \newenvironment{prakata}
- {\small
- \null\vfil
- \quotation
-  \list{}{%
-%    \setlength{\leftmargin}{1cm}% <---------- CHANGE HERE
-%    \setlength{\rightmargin}{\leftmargin+1cm}%
-    \singlespacing
-  }%
-  \item\relax}
- {\endquotation\null\vfil\endlist}
+{\small
+	\null\vfil
+	\quotation
+	\list{}{%
+		%    \setlength{\leftmargin}{1cm}% <---------- CHANGE HERE
+		%    \setlength{\rightmargin}{\leftmargin+1cm}%
+		\singlespacing
+	}%
+	\item\relax}
+{\endquotation\null\vfil\endlist}
