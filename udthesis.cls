@@ -69,7 +69,7 @@
 	left=4cm, % Left margin
 	right=3cm, % Right margin
 	%	headheight=0.75cm, % Header height
-	footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
+	footskip=2.51cm, % Space from the bottom margin to the baseline of the footer
 	%	headsep=0.75cm, % Space from the top margin to the baseline of the header
 	showframe, % Uncomment to show how the type block is set on the page
 }
@@ -266,6 +266,22 @@
 %\makeatletter
 %\renewcommand\@biblabel[1]{\textbf{#1.}} % Remove the square brackets from each bibliography item ('[1]' to '1.')
 %\makeatother
+
+
+%----------------------------------------------------------------------------------------
+%	Header and Footer
+%----------------------------------------------------------------------------------------
+
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+% \setlength{\footskip}{60pt}
+
+\fancyfoot[LE]{Bebek\raisebox{1\baselineskip}{\includegraphics{placeholder}} Ducks are cute}
+\fancyfoot[LO]{\hspace*{-4cm}\raisebox{-1\baselineskip}{\includegraphics[scale=1, width=1.2\textwidth]{odd}}}
 
 
 %----------------------------------------------------------------------------------------
