@@ -72,6 +72,7 @@
 	footskip=2.51cm, % Space from the bottom margin to the baseline of the footer
 	%	headsep=0.75cm, % Space from the top margin to the baseline of the header
 	showframe, % Uncomment to show how the type block is set on the page
+	includeheadfoot
 }
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -213,6 +214,15 @@
 %    <{\@finalstrut\@arstrutbox\enditemize\endminipage}}
 %\makeatother
 
+% Settings for TikZ Headers with coloured background
+%-------------------------------------------------------------------
+\usepackage{atveryend}
+\usepackage{lastpage}
+
+\usepackage[usenames, dvipsnames]{color} % https://de.sharelatex.com/learn/Using_colours_in_LaTeX#!#Reference_guide z.B. \color{RubineRed} - use ColorNames
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CornflowerBlue}{RGB}{100,149,237} %#6495ed (HTML) - define your own colors
+% pick some from here: http://latexcolor.com/
 %----------------------------------------------------------------------------------------
 % CONFIGURATION OF TIKZ
 \usepackage{tikz}
