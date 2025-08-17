@@ -282,16 +282,39 @@
 %	Header and Footer
 %----------------------------------------------------------------------------------------
 
+
+% Settings for "normal" headers and footers
+%-------------------------------------------------------------------
 \usepackage{etoolbox}
-\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy1}}{}{}
 
-\usepackage{fancyhdr}
-
+\usepackage{fancyhdr} % http://mirror.easyname.at/ctan/macros/latex/contrib/fancyhdr/fancyhdr.pdf
 \pagestyle{fancy}
-% \setlength{\footskip}{60pt}
 
-\fancyfoot[LE]{Bebek\raisebox{1\baselineskip}{\includegraphics{placeholder}} Ducks are cute}
-\fancyfoot[LO]{\hspace*{-4cm}\raisebox{-1\baselineskip}{\includegraphics[scale=1, width=1.2\textwidth]{odd}}}
+\fancypagestyle{fancy1}{
+	\fancyhf{} % clear space at the header and footer so the fancy headers / footers can be placed
+	%-------------------------------------------------------------------
+	\renewcommand{\headrulewidth}{0pt} % set a head rule of 2pt thickness
+	%\renewcommand{\footrulewidth}{1pt} % same would be possible if you wanted a footer rule
+	%-------------------------------------------------------------------
+
+	% things you might want to access here: \thesection \thechapter \chaptername \sectionmark \rightmark \leftmark
+	% check this for further info: https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
+
+	% puts a small logo on the right side of the HEADER - same goes for the \lhead:
+	% \rhead{}
+	\fancyhead[RE]{\includegraphics[width=0.1\textwidth]{logo}}
+	% \lhead{\footnotesize\textbf{Example citation:} \textsc{Author-Lastname}, Surname: ``Article title'', in: \textsc{Editor} (ed.): \emph{booktitle}, NY 2018. {\textsc{Link:}} \protect\url{http://mylink.com}{ } \lbrack{}\today\rbrack{}.}
+	% you could you \chead to access the center as well
+
+	%-------------------------------------------------------------------
+	% defines all the FOOTER settings. But in this case, they are conditional: We check if we're on the last page and only print it, if we're not.
+	\rfoot{\ifnum\getpagerefnumber{VeryLastPage}=\value{page}\else\includegraphics[width=0.1\textwidth]{logo}\fi}
+	\lfoot{\ifnum\getpagerefnumber{VeryLastPage}=\value{page}\else{\scriptsize your custom footer text goes here}\fi}
+
+	% add the page count in the middle: \thepage gives you the current page, \pageref{LastPage} the total
+	\cfoot{\ifnum\getpagerefnumber{VeryLastPage}=\value{page}\else\thepage/\pageref{LastPage}\fi}
+}
 
 
 %----------------------------------------------------------------------------------------
